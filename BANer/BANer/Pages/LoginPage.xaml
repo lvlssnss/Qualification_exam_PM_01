@@ -1,0 +1,37 @@
+﻿<Window x:Class="BANer.LoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+         Background="#FFFFDAFF"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen" 
+        xmlns:local="clr-namespace:BANer"
+        Height="120"
+        Width="360">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Height="15" HorizontalAlignment="Right">
+                <Button x:Name="btnMinimize" Click="btnMinimize_Click"  Height="15">
+                    <fa:IconImage Icon="WindowMinimize" Width="20"/>
+                </Button>
+                <Button x:Name="btnClose" Click="btnClose_Click" Margin="0,0" Height="15" Width="52">
+                    <fa:IconImage Icon="Xmark"/>
+                </Button>
+            </StackPanel>
+            <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Введите логин"  x:Name="login" MaxLength="8"    PreviewKeyDown="еPreviewKeyDown" />
+            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}"  materialDesign:HintAssist.Hint="Введите пароль" x:Name="passwd" MaxLength="8" PreviewKeyDown="еPreviewKeyDown"/>
+            <Button   Content="Войти" Click="Auth_Click" Foreground="White" />
+        </StackPanel>
+    </Grid>
+</Window>

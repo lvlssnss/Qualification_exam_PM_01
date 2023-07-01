@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33801.447
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BANer", "BANer\BANer.csproj", "{F622ACE1-4A1A-4CCA-BFA5-EDBA422ABEFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F622ACE1-4A1A-4CCA-BFA5-EDBA422ABEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F622ACE1-4A1A-4CCA-BFA5-EDBA422ABEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F622ACE1-4A1A-4CCA-BFA5-EDBA422ABEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F622ACE1-4A1A-4CCA-BFA5-EDBA422ABEFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {244B4899-F59D-4ECF-9590-E90680FAAAF2}
+	EndGlobalSection
+EndGlobal
