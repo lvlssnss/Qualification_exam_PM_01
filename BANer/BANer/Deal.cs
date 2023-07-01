@@ -20,6 +20,13 @@ namespace BANer
         public int Worker_id { get; set; }
         public int period { get; set; }
         public string status { get; set; }
+        public string ID
+        {
+            get
+            {
+                return $"Идентификатор: {id}";
+            }
+        }
         public int price
         {
             get

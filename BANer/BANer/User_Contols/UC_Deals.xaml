@@ -76,6 +76,7 @@
                                                HorizontalAlignment="Left"
                                                VerticalAlignment="Center"
                                                Grid.Column="0">
+                                        <TextBox  Margin="10,0,0,0" Text="{Binding ID,Mode=OneWay}"  BorderThickness="0" Background="Transparent" FontSize="14" FontWeight="Bold" Foreground="#FFE91E63" IsReadOnly="True" IsHitTestVisible="False"/>
                                         <TextBox  Margin="10,0,0,0" Text="{Binding BannerName,Mode=OneWay}"  BorderThickness="0" Background="Transparent" FontSize="14" FontWeight="Bold" Foreground="#FFE91E63" IsReadOnly="True" IsHitTestVisible="False"/>
                                         <TextBox Margin="10,0,0,0" Text="{Binding ClientName,Mode=OneWay}" BorderThickness="0" Background="Transparent" FontSize="14" FontWeight="Bold" Foreground="#FFE91E63" Width="450" IsReadOnly="True" IsHitTestVisible="False" />
                                         <TextBox Margin="10,0,0,0" Text="{Binding WorkerName,Mode=OneWay}"  BorderThickness="0" Background="Transparent" FontSize="14" FontWeight="Bold" Foreground="#FFE91E63" IsReadOnly="True" IsHitTestVisible="False"/>
