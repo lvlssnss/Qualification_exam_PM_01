@@ -1,0 +1,99 @@
+USE *имя пустой уже созданной базы данных*;
+GO
+
+-- Создание таблицы Banner
+CREATE TABLE [dbo].[Banner](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [hightway_name] [nvarchar](6) NOT NULL,
+    [lenght] [int] NOT NULL,
+    [price] [int] NOT NULL,
+    [status] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Banner] PRIMARY KEY CLUSTERED 
+(
+    [id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY];
+GO
+
+-- Создание таблицы Client
+CREATE TABLE [dbo].[Client](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [FIO] [nvarchar](60) NOT NULL,
+    [number] [nvarchar](20) NOT NULL,
+ CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED 
+(
+    [id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY];
+GO
+
+-- Создание таблицы Deal
+CREATE TABLE [dbo].[Deal](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [Banner_id] [int] NOT NULL,
+    [Client_id] [int] NOT NULL,
+    [Worker_id] [int] NOT NULL,
+    [period] [int] NOT NULL,
+    [status] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Deal] PRIMARY KEY CLUSTERED 
+(
+    [id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY];
+GO
+
+-- Создание таблицы Role
+CREATE TABLE [dbo].[Role](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [name] [nvarchar](30) NOT NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+    [id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY];
+GO
+
+-- Создание таблицы worker
+CREATE TABLE [dbo].[worker](
+    [id] [int] IDENTITY(1,1) NOT NULL,
+    [FIO] [nvarchar](60) NULL,
+    [login] [nvarchar](8) NOT NULL,
+    [password] [nvarchar](8) NOT NULL,
+    [role_id] [int] NOT NULL,
+ CONSTRAINT [PK_worker] PRIMARY KEY CLUSTERED 
+(
+    [id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY];
+GO
+
+-- Создание внешних ключей
+ALTER TABLE [dbo].[Deal] WITH CHECK ADD CONSTRAINT [FK_Deal_Banner] FOREIGN KEY([Banner_id])
+REFERENCES [dbo].[Banner] ([id]);
+GO
+
+ALTER TABLE [dbo].[Deal] WITH CHECK ADD CONSTRAINT [FK_Deal_Client] FOREIGN KEY([Client_id])
+REFERENCES [dbo].[Client] ([id]);
+GO
+
+ALTER TABLE [dbo].[Deal] WITH CHECK ADD CONSTRAINT [FK_Deal_worker] FOREIGN KEY([Worker_id])
+REFERENCES [dbo].[worker] ([id]);
+GO
+
+ALTER TABLE [dbo].[worker] WITH CHECK ADD CONSTRAINT [FK_worker_Role] FOREIGN KEY([role_id])
+REFERENCES [dbo].[Role] ([id]);
+GO
+
+-- Вставка данных в таблицу Role
+INSERT INTO Role (name)
+VALUES 
+    ('админ'),
+    ('директор'),
+    ('менеджер по продажам'),
+    ('оператор Call-центра');
+GO
+
+-- Вставка данных в таблицу worker
+INSERT INTO worker (FIO, login, password, role_id)
+VALUES ('1', '1', '1', 1);
+GO

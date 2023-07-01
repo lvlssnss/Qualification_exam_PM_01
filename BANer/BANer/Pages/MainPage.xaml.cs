@@ -20,9 +20,25 @@ namespace BANer.Pages
     /// </summary>
     public partial class MainPage : Window
     {
+        BANerEntities _context = new BANerEntities();
         public MainPage()
         {
             InitializeComponent();
+            if (RoleStorage.role != 1)
+            {
+                var parentControl = BtnUsers.Parent as Panel;
+                if (parentControl!=null)
+                {
+                    if (RoleStorage.role==3 || RoleStorage.role == 4)
+                    {
+                        parentControl.Children.Remove(BtnUsers);
+                        if (RoleStorage.role==4)
+                        {
+                            parentControl.Children.Remove(BtnOrders);
+                        }
+                    }
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,9 +81,16 @@ namespace BANer.Pages
         }
         private void RadioButton_Checked_3(object sender, RoutedEventArgs e) //Сделки
         {
-            MoveButtons();
-            UC_Deals uc = new UC_Deals();
-            LV_User_ControlPanel.Children.Add(uc);
+            if (_context.Banner.ToList().Count==0 || _context.worker.Where(t=>t.role_id==4).ToList().Count==0||_context.Client.ToList().Count==0)
+            {
+                MessageBox.Show("Вы не можете создать сделку, пока у вас не создан клиент, работник Call-центра и баннер");
+            }
+            else
+            {
+                MoveButtons();
+                UC_Deals uc = new UC_Deals();
+                LV_User_ControlPanel.Children.Add(uc);
+            }
         }
         private void MoveButtons()
         {

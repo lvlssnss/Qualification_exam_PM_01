@@ -27,6 +27,14 @@ namespace BANer.User_Contols
         {
             InitializeComponent();
             UpdateData();
+            if (RoleStorage.role == 2 || RoleStorage.role == 4)
+            {
+                var parentControl = New_User.Parent as Panel;
+                if (parentControl != null)
+                {
+                    parentControl.Children.Remove(New_User);
+                }
+            }
         }
         public void UpdateData()
         {
@@ -55,8 +63,15 @@ namespace BANer.User_Contols
         }
         private void Edit_del_Order_Click(object sender, RoutedEventArgs e)
         {
-           Edit_Client edit = new Edit_Client(_context, this, sender);
-            edit.ShowDialog();
+            if (RoleStorage.role == 2)
+            {
+                MessageBox.Show("Недостаточно доступа");
+            }
+            else
+            { 
+                Edit_Client edit = new Edit_Client(_context, this, sender);
+                edit.ShowDialog();
+            }
         }
 
         private void Filt_Post_SelectionChanged(object sender, SelectionChangedEventArgs e)

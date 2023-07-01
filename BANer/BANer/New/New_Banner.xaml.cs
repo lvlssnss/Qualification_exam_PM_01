@@ -92,7 +92,7 @@ namespace BANer.New
                 int _price = int.Parse(price.Text);
                 if (_context.Banner.FirstOrDefault(w => w.hightway_name == Login.Text && w.lenght ==lenght)!=null)
                 {
-                    System.Windows.MessageBox.Show($"На трассе {Login.Text} банер с такой удалённостью");
+                    System.Windows.MessageBox.Show($"На трассе {Login.Text} уже есть банер с такой удалённостью");
                 }
                 else
                 {

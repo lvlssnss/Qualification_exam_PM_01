@@ -27,7 +27,15 @@ namespace BANer.New
             InitializeComponent();
             this._context = context;
             this.UC_Workers = uC_Workers;
-            Post.ItemsSource = _context.Role.Where(r=>r.id!=1).Select(r => r.name).ToList();
+            var roles= _context.Role.Where(r=>r.id!=1).ToList();
+            if (_context.worker.Where(t=>t.role_id==2).ToList().Count==1)
+            {
+                roles = roles.Where(r => r.id != 2).ToList();
+            }
+            foreach (var role in roles)
+            {
+                Post.Items.Add($"{role.name}");
+            }
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
