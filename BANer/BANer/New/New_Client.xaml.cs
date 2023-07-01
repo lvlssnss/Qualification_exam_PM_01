@@ -89,7 +89,7 @@ namespace BANer.New
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(LFMnamefield.Text)|| string.IsNullOrEmpty(Login.Text))
+            if (string.IsNullOrEmpty(LFMnamefield.Text)|| string.IsNullOrEmpty(Login.Text) || Login.Text.Length<=11)
             {
                 MessageBox.Show("Вы ввели не все данные");
             }

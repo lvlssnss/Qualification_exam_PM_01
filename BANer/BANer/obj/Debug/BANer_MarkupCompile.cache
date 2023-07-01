@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\projects\BANer\BANer\obj\Debug\
+E:\git1\Qualification_exam_PM_01\BANer\BANer\obj\Debug\
 BANer
 none
 false
 DEBUG;TRACE
-E:\projects\BANer\BANer\App.xaml
+E:\git1\Qualification_exam_PM_01\BANer\BANer\App.xaml
 14925417138
 21750853300
-26-810292506
-23892982607
+27-1652651873
+23165209263
 Edit\Edit_Client.xaml;Edit\Edit_Banner.xaml;Edit\Edit_Deal.xaml;Edit\Edit_Worker.xaml;New\New_Client.xaml;New\New_Banner.xaml;New\New_Deal.xaml;New\New_Worker.xaml;Pages\LoginPage.xaml;Pages\MainPage.xaml;User_Contols\UC_Banners.xaml;User_Contols\UC_Clients.xaml;User_Contols\UC_Deals.xaml;User_Contols\UC_Workers.xaml;
 
-False
+True
 
